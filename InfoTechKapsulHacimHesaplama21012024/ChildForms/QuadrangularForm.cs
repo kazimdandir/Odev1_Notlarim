@@ -20,12 +20,16 @@ namespace InfoTechKapsulHacimHesaplama21012024.ChildForms
 
         List<Quadrangular> qList = new List<Quadrangular>();
 
+        int _id = 0;
+
         private void btn_hesapla_Click(object sender, EventArgs e)
         {
+            _id++;
+
             try
             {
                 Quadrangular q = new Quadrangular();
-                q.Id += 1;
+                q.Id = _id;
                 q.ShortSide = int.Parse(txt_shortSide.Text);
                 q.LongSide = int.Parse(txt_longSide.Text);
                 q.Height = int.Parse(txt_height.Text);
@@ -36,9 +40,14 @@ namespace InfoTechKapsulHacimHesaplama21012024.ChildForms
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = qList;
+        }
+
+        private void QuadrangularForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

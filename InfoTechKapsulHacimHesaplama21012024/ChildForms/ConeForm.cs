@@ -19,13 +19,16 @@ namespace InfoTechKapsulHacimHesaplama21012024.ChildForms
         }
 
         List<Cone> cList = new List<Cone>();
+        int _id = 0;
 
         private void btn_hesapla_Click(object sender, EventArgs e)
         {
+            _id++;
+
             try
             {
                 Cone c = new Cone();
-                c.Id += 1;
+                c.Id += _id;
                 c.Radius = int.Parse(txt_radius.Text);
                 c.Height = int.Parse(txt_height.Text);
                 c.TotalArea = c.CalculateVolume(c.Radius, c.Height);
@@ -38,6 +41,11 @@ namespace InfoTechKapsulHacimHesaplama21012024.ChildForms
 
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = cList;
+        }
+
+        private void ConeForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

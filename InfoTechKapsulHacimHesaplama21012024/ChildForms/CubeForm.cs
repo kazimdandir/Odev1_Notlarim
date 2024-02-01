@@ -18,15 +18,19 @@ namespace InfoTechKapsulHacimHesaplama21012024.ChildForms
         {
             InitializeComponent();
         }
-        
+
         List<Cube> cList = new List<Cube>();
+
+        int _id = 0;
 
         private void btn_hesapla_Click(object sender, EventArgs e)
         {
+            _id++;
+
             try
             {
                 Cube c = new Cube();
-                c.Id += 1;
+                c.Id = _id;
                 c.Side = int.Parse(txt_side.Text);
                 c.TotalArea = c.CalculateVolume(c.Side);
                 cList.Add(c);
@@ -38,6 +42,11 @@ namespace InfoTechKapsulHacimHesaplama21012024.ChildForms
 
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = cList;
+        }
+
+        private void CubeForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

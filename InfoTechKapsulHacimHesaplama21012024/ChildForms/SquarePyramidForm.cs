@@ -19,13 +19,16 @@ namespace InfoTechKapsulHacimHesaplama21012024.ChildForms
         }
 
         List<SquarePyramid> sqlist = new List<SquarePyramid>();
+        int _id = 0;
 
         private void btn_hesapla_Click(object sender, EventArgs e)
         {
+            _id++;
+
             try
             {
                 SquarePyramid sp = new SquarePyramid();
-                sp.Id += 1;
+                sp.Id += _id;
                 sp.Side = int.Parse(txt_side.Text);
                 sp.Height = int.Parse(txt_height.Text);
                 sp.TotalArea = sp.CalculateVolume(sp.Side, sp.Height);
@@ -38,6 +41,11 @@ namespace InfoTechKapsulHacimHesaplama21012024.ChildForms
 
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = sqlist;
+        }
+
+        private void SquarePyramidForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

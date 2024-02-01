@@ -15,7 +15,8 @@ namespace InfoTechKapsulHacimHesaplama21012024.Shapes
 
         public double CalculateVolume(int _radius, int _height)
         {
-            TotalArea = Math.PI * Math.Pow(_radius, 2) * _height * (1 / 3);
+            TotalArea = Math.Round(Math.PI, 2) * Math.Pow(_radius, 2) * _height * Math.Round(1 / 3d, 2);
+            TotalArea = Math.Round(TotalArea, 2);
             return TotalArea;
         }
     }

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,13 +20,16 @@ namespace InfoTechKapsulHacimHesaplama21012024.ChildForms
         }
 
         List<Sphere> sList = new List<Sphere>();
+        int _id = 0;
 
         private void btn_hesapla_Click(object sender, EventArgs e)
         {
+            _id++;
+
             try
             {
                 Sphere s = new Sphere();
-                s.Id += 1;
+                s.Id = _id;
                 s.Radius = int.Parse(txt_radius.Text);
                 s.TotalArea = s.CalculateVolume(s.Radius);
                 sList.Add(s);
